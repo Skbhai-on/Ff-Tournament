@@ -1,6 +1,58 @@
-<DOCTYPE html>
-<html>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Free Fire Tournament</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f0f0f0;
+            margin: 20px;
+        }
+        .tournament-info {
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 5px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        .participants {
+            list-style-type: none;
+            padding: 0;
+        }
+        .participants li {
+            background-color: #e7e7e7;
+            margin: 10px 0;
+            padding: 10px;
+            border-radius: 5px;
+        }
+    </style>
+</head>
 <body>
-  <p>Hello world</p>
+
+<div class="tournament-info">
+    <h1 id="title"></h1>
+    <p id="description"></p>
+    <h2>Participants:</h2>
+    <ul id="participants" class="participants"></ul>
+</div>
+
+<script>
+    fetch('data.json')
+        .then(response => response.json())
+        .then(data => {
+            document.getElementById('title').textContent = data.title;
+            document.getElementById('description').textContent = data.description;
+            
+            const participantsList = document.getElementById('participants');
+            data.participants.forEach(participant => {
+                const listItem = document.createElement('li');
+                listItem.textContent = `${participant.name} - Score: ${participant.score}`;
+                participantsList.appendChild(listItem);
+            });
+        })
+        .catch(error => console.error('Error loading data:', error));
+</script>
+
 </body>
 </html>
