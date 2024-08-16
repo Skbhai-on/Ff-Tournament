@@ -2,8 +2,8 @@
   "title": "Free Fire Tournament",
   "description": "A tournament for Free Fire enthusiasts.",
   "participants": [
-    { "name": "Player1", "score": 1200 },
-    { "name": "Player2", "score": 1500 },
-    { "name": "Player3", "score": 1900 }
+    { "name": "Sk Bhai 1", "score": 1200 },
+    { "name": "Sk Bhai 2", "score": 1500 },
+    { "name": "Sk Bhai 3", "score": 1900 }
   ]
 }
